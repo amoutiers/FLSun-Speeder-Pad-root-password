@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  tools:
+    build:
+      context: ./docker/
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+    environment:
+      - SPEEDER_PAD_PWD
