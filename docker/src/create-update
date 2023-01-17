@@ -5,9 +5,9 @@ set -e
 [ ${#SPEEDER_PAD_PWD} -eq 0 ] && export SPEEDER_PAD_PWD=flsun
 SPEEDER_PAD_PWD=`echo $SPEEDER_PAD_PWD | sed 's/ *$//g'`
 
-sed -i "s/SPEEDER_PAD_PWD/${SPEEDER_PAD_PWD}/g" update.tpl
+sed "s/SPEEDER_PAD_PWD/${SPEEDER_PAD_PWD}/g" update.tpl > update.sh
 
-zip update.zip update.tpl
+zip update.zip update.sh
 sed -i "s/\x50\x4B\x01\x02/c604/g" update.zip
 sed -i "s/\x50\x4B\x05\x06/4d19/g" update.zip
 sed -i "s/\x50\x4B\x03\x04/5cc5/g" update.zip
